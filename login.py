@@ -3,6 +3,7 @@ import json
 import base64
 import matplotlib.pyplot as plt
 import ddddocr
+import os
 from encrypt import AES_encrypt
 
 
@@ -76,6 +77,9 @@ def login(conf):
 
     with open("login_pac.json", 'r', encoding="utf-8") as f:
         result = json.load(f)   # 加载返回的json
+
+    os.remove("login_pac.json")     # 加载完成后删除，保护隐私
+
     return result
 
 
